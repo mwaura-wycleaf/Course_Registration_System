@@ -255,7 +255,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="login-box">
 
-            <h1>Student Course Registration System</h1>
+            <h1>Student Course Registration</h1>
 
             <p class="subtitle">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i> Utalii University
@@ -295,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             required>
 
                         <span id="togglePassword">
-                           <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                           <i class="fa-solid fa-eye" aria-hidden="true"></i>
                         </span>
 
                     </div>
@@ -304,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <button type="submit">
 
-                    Login
+                    Sign in
 
                 </button>
 
