@@ -78,9 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display:flex;
             justify-content:center;
             align-items:center;
-
             min-height:100vh;
-
             background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
 
         }
@@ -297,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             required>
 
                         <span id="togglePassword">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
+                           <i class="fa fa-eye" aria-hidden="true"></i>
                         </span>
 
                     </div>
@@ -317,7 +315,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        const togglePassword = document.getElementById("togglePassword i");
+        const togglePassword = document.querySelector("#togglePassword i");
         const password = document.getElementById("password");
 
         togglePassword.addEventListener("click", function(){
@@ -325,12 +323,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(password.type === "password"){
 
                 password.type = "text";
-                this.classList.replace("fa-eye","fa-eye-slash");
+                this.classList.add("fa-eye");
+                this.classList.remove("fa-eye-slash");
 
             }else{
 
                 password.type = "password";
-                this.classList.replace("fa-eye-slash","fa-eye");
+                this.classList.remove("fa-eye-slash");
+                this.classList.add("fa-eye");
 
             }
 
