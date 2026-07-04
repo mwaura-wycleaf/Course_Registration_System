@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        const togglePassword = document.getElementById("togglePassword");
+        const togglePassword = document.getElementById("togglePassword i");
         const password = document.getElementById("password");
 
         togglePassword.addEventListener("click", function(){
