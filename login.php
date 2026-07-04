@@ -142,48 +142,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             letter-spacing:.5px;
 
         }
-
-        .input-box input:focus{
-
-         border-color:#60a5fa;
-
-         box-shadow:0 0 10px rgba(96,165,250,.4);
-    
-        }
-
-        .input-box{
-            margin-bottom:22px;
-
-        }
-
-        .input-box label{
-            display:block;
-            margin-bottom:8px;
-
-            font-weight:bold;
-
-        }
-
         .input-box input{
 
             width:100%;
-
             padding:14px;
-
-            border:2px solid transparent;
+            border:1px solid rgba(255,255,255,.25);
+            background:rgba(255,255,255,.15);
+            color:#fff;
+            border-radius:10px;
+            outline:none;
+            font-size:16px;
             transition:.3s;
 
-            outline:none;
+        }
 
-            border-radius:10px;
+        .input-box input::placeholder{
 
-            font-size:16px;
+            color:rgba(255,255,255,.7);
+
+        }
+
+        .input-box input:focus{
+
+            border-color:#60a5fa;
+            background:rgba(255,255,255,.22);
+            box-shadow:0 0 12px rgba(96,165,250,.35);
+
+        }
+
+       input[type="email"], input[type="password"]{
+
+            margin-bottom: 20px;
+            margin-top: 5px;
 
         }
 
         .password-wrapper{
 
             position:relative;
+            margin-bottom:20px;
 
         }
 
@@ -286,6 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="subtitle">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i> Utalii University
             </p>
+
             
             <?php
                 if (!empty($error)) {
@@ -361,6 +359,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         });
     </script>
+
+    
 
 </body>
 
