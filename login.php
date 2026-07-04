@@ -64,7 +64,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <title>Student Course Registration System</title>
     <style>
-        
+
+        .error{
+        background:#ffdddd;
+        color:#b30000;
+        padding:12px;
+        margin-bottom:20px;
+        border-radius:8px;
+        text-align:center;
+        font-weight:bold;
+       }
+       
     </style>
 
 </head>
