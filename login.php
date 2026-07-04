@@ -74,17 +74,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         body{
-
             display:flex;
             justify-content:center;
             align-items:center;
             min-height:100vh;
-            background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+            background:linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #1e40af 50%,
+            #3b82f6 100%
+            );
 
         }
 
         .container{
-
             width:100%;
             display:flex;
             justify-content:center;
@@ -93,53 +96,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .login-box{
-
             width:420px;
-
             background:rgba(255,255,255,.15);
-
             backdrop-filter:blur(18px);
-
             border-radius:20px;
-
-            padding:40px;
-
+            padding:50px 45px;
             box-shadow:0 10px 35px rgba(0,0,0,.3);
-
             color:white;
+            animation:fadeIn .7s ease;
+
+        }
+
+        @keyframes fadeIn{
+
+            from{
+
+            opacity:0;
+
+            transform:translateY(30px);
+
+            }
+
+            to{
+
+            opacity:1;
+
+            transform:translateY(0);
+
+            }
 
         }
 
         .login-box h1{
-
             text-align:center;
-
             margin-bottom:10px;
-
-            font-size:30px;
+            font-size:34px;
+            font-weight:700;
 
         }
 
         .subtitle{
-
             text-align:center;
-
             margin-bottom:35px;
-
-            color:#ddd;
+            color:#e2e8f0;
+            letter-spacing:.5px;
 
         }
 
-        .input-box{
+        .input-box input:focus{
 
+         border-color:#60a5fa;
+
+         box-shadow:0 0 10px rgba(96,165,250,.4);
+    
+        }
+
+        .input-box{
             margin-bottom:22px;
 
         }
 
         .input-box label{
-
             display:block;
-
             margin-bottom:8px;
 
             font-weight:bold;
@@ -152,7 +170,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             padding:14px;
 
-            border:none;
+            border:2px solid transparent;
+            transition:.3s;
 
             outline:none;
 
@@ -206,6 +225,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             background:#2563eb;
 
+           font-weight:bold;
+
+           letter-spacing:.5px;
+
             color:white;
 
             transition:.3s;
@@ -215,6 +238,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         button:hover{
 
             background:#1d4ed8;
+            transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
 
         }
 
@@ -323,12 +349,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(password.type === "password"){
 
                 password.type = "text";
-                 this.classList.replace("fa-eye", "fa-eye-slash");
+                this.classList.replace("fa-eye-slash", "fa-eye");
+                 
 
             }else{
 
                 password.type = "password";
-               this.classList.replace("fa-eye-slash", "fa-eye");
+               this.classList.replace("fa-eye", "fa-eye-slash");
 
             }
 
