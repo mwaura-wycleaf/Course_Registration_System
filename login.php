@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $student = mysqli_fetch_assoc($result);
 
-            if ($password == $student["Password"]) {
+            if ($password == $student["password"]) {
 
                 $_SESSION["Student_ID"] = $student["Student_ID"];
                 $_SESSION["First_Name"] = $student["First_Name"];
@@ -295,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             required>
 
                         <span id="togglePassword">
-                           <i class="fa fa-eye" aria-hidden="true"></i>
+                           <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
                         </span>
 
                     </div>
@@ -323,14 +323,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(password.type === "password"){
 
                 password.type = "text";
-                this.classList.add("fa-eye");
-                this.classList.remove("fa-eye-slash");
+                 this.classList.replace("fa-eye", "fa-eye-slash");
 
             }else{
 
                 password.type = "password";
-                this.classList.remove("fa-eye-slash");
-                this.classList.add("fa-eye");
+               this.classList.replace("fa-eye-slash", "fa-eye");
 
             }
 
