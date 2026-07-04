@@ -74,76 +74,98 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         text-align:center;
         font-weight:bold;
        }
-       
+
     </style>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="login-box">
+        <div class="login-box">
 
-        <h1>Student Course Registration System</h1>
+            <h1>Student Course Registration System</h1>
 
-        <p class="subtitle">
-           <i class="fa fa-graduation-cap" aria-hidden="true"></i> Utalii University
-        </p>
-        
-        <?php
-            if (!empty($error)) {
-            echo "<div class='error'>$error</div>";
-            }  
-        ?>
+            <p class="subtitle">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Utalii University
+            </p>
+            
+            <?php
+                if (!empty($error)) {
+                echo "<div class='error'>$error</div>";
+                }  
+            ?>
 
-        <form action="" method="POST">
+            <form action="" method="POST">
 
-            <div class="input-box">
+                <div class="input-box">
 
-                <label>Email Address</label>
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required>
-
-            </div>
-
-            <div class="input-box">
-
-                <label>Password</label>
-
-                <div class="password-wrapper">
+                    <label>Email Address</label>
 
                     <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
                         required>
-
-                    <span id="togglePassword">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </span>
 
                 </div>
 
-            </div>
+                <div class="input-box">
 
-            <button type="submit">
+                    <label>Password</label>
 
-                Login
+                    <div class="password-wrapper">
 
-            </button>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
 
-        </form>
+                        <span id="togglePassword">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button type="submit">
+
+                    Login
+
+                </button>
+
+            </form>
+
+        </div>
 
     </div>
 
-</div>
+    <script>
+        const togglePassword = document.getElementById("togglePassword");
+        const password = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function(){
+
+            if(password.type === "password"){
+
+                password.type = "text";
+                this.classList.replace("fa-eye","fa-eye-slash");
+
+            }else{
+
+                password.type = "password";
+                this.classList.replace("fa-eye-slash","fa-eye");
+
+            }
+
+        });
+    </script>
 
 </body>
+
 
 </html>
