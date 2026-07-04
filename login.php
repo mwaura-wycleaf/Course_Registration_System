@@ -65,15 +65,187 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Student Course Registration System</title>
     <style>
 
+
+       *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            min-height:100vh;
+
+            background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+
+        }
+
+        .container{
+
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .login-box{
+
+            width:420px;
+
+            background:rgba(255,255,255,.15);
+
+            backdrop-filter:blur(18px);
+
+            border-radius:20px;
+
+            padding:40px;
+
+            box-shadow:0 10px 35px rgba(0,0,0,.3);
+
+            color:white;
+
+        }
+
+        .login-box h1{
+
+            text-align:center;
+
+            margin-bottom:10px;
+
+            font-size:30px;
+
+        }
+
+        .subtitle{
+
+            text-align:center;
+
+            margin-bottom:35px;
+
+            color:#ddd;
+
+        }
+
+        .input-box{
+
+            margin-bottom:22px;
+
+        }
+
+        .input-box label{
+
+            display:block;
+
+            margin-bottom:8px;
+
+            font-weight:bold;
+
+        }
+
+        .input-box input{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            outline:none;
+
+            border-radius:10px;
+
+            font-size:16px;
+
+        }
+
+        .password-wrapper{
+
+            position:relative;
+
+        }
+
+        .password-wrapper input{
+
+            padding-right:50px;
+
+        }
+
+        .password-wrapper i{
+
+            position:absolute;
+
+            right:18px;
+
+            top:50%;
+
+            transform:translateY(-50%);
+
+            cursor:pointer;
+
+            color:#333;
+
+        }
+
+        button{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+            background:#2563eb;
+
+            color:white;
+
+            transition:.3s;
+
+        }
+
+        button:hover{
+
+            background:#1d4ed8;
+
+        }
+
         .error{
-        background:#ffdddd;
-        color:#b30000;
-        padding:12px;
-        margin-bottom:20px;
-        border-radius:8px;
-        text-align:center;
-        font-weight:bold;
-       }
+
+            background:#ffdddd;
+
+            color:#b30000;
+
+            padding:12px;
+
+            border-radius:10px;
+
+            margin-bottom:20px;
+
+            text-align:center;
+
+        }
+
+        @media(max-width:500px){
+
+        .login-box{
+
+            width:90%;
+            padding:30px;
+
+        }
+
+    }
 
     </style>
 
