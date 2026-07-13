@@ -8,27 +8,46 @@ if (!isset($_SESSION["Student_ID"])) {
 
 require_once "config/db.php";
 
+// Get the logged-in student's ID from the session
 $studentID = $_SESSION["Student_ID"];
 
 /* ==========================
    GET STUDENT DETAILS
 ========================== */
 
-$sql = "SELECT s.Student_ID,
-               s.First_Name,
-               s.Email,
-               d.Department_Name,
-               d.Faculty
+$sql = "SELECT 
+            s.Student_ID,
+            s.First_Name,
+            s.Last_Name,
+            s.Email,
+            s.Phone,
+            d.Department_Name,
+            d.Faculty
         FROM student s
         INNER JOIN department d
-        ON s.Department_ID = d.Department_ID
+            ON s.Department_ID = d.Department_ID
         WHERE s.Student_ID = ?";
 
 $stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "i", $studentID);
+
+if (!$stmt) {
+    die("Prepare failed: " . mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($stmt, "s", $studentID);
 mysqli_stmt_execute($stmt);
+
 $result = mysqli_stmt_get_result($stmt);
 $student = mysqli_fetch_assoc($result);
+
+// Debug (remove after testing)
+// echo "<pre>";
+// print_r($student);
+// echo "</pre>";
+
+if (!$student) {
+    die("No student record found for Student_ID: " . htmlspecialchars($studentID));
+}
 
 /* ==========================
    COUNT REGISTERED COURSES
@@ -39,12 +58,21 @@ $countSQL = "SELECT COUNT(*) AS total
              WHERE Student_ID = ?";
 
 $countStmt = mysqli_prepare($conn, $countSQL);
-mysqli_stmt_bind_param($countStmt, "i", $studentID);
-mysqli_stmt_execute($countStmt);
-$countResult = mysqli_stmt_get_result($countStmt);
-$count = mysqli_fetch_assoc($countResult);
 
-$totalCourses = $count['total'];
+if (!$countStmt) {
+    die("Prepare failed: " . mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($countStmt, "s", $studentID);
+mysqli_stmt_execute($countStmt);
+
+$countResult = mysqli_stmt_get_result($countStmt);
+
+if ($countRow = mysqli_fetch_assoc($countResult)) {
+    $totalCourses = (int)$countRow["total"];
+} else {
+    $totalCourses = 0;
+}
 ?>
 
 <!DOCTYPE html>
@@ -640,12 +668,12 @@ const now=new Date();
 
 const hour=now.getHours();
 
-let greeting="Good Evening 🌙";
+let greeting="Good Evening";
 
 if(hour<12){
-    greeting="Good Morning ☀";
+    greeting="Good Morning";
 }else if(hour<18){
-    greeting="Good Afternoon 🌤";
+    greeting="Good Afternoon";
 }
 
 document.getElementById("greeting").innerHTML=
