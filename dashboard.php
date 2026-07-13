@@ -508,7 +508,7 @@ body{
 </li>
 
 <li>
-<a href="#">
+<a href="profile.php">
 <i class="fa-solid fa-user"></i>
 <span>My Profile</span>
 </a>
@@ -577,7 +577,7 @@ Welcome back,
 <p>Remove a course registration.</p>
 </a>
 
-<a href="#" class="card">
+<a href="profile.php" class="card">
 <i class="fa-solid fa-user"></i>
 <h3>My Profile</h3>
 <p>View your academic profile.</p>
